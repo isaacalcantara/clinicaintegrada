@@ -14,7 +14,7 @@
     <nav id='menu' class='navbar bg-light container-fluid'>
     <div class='row navbar navbar-expand-lg'>
       <div id='logomarca' class='col'>
-        <img src='../assets/imgs/logomarca/logo_sem_bg.png' alt='Logomarca'>
+        <img src='imgs\logo.png' alt='Logomarca' style="width: 120px; padding-left: 10px;">
       </div>
       <div class='col d-flex justify-content-end'>
           <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
