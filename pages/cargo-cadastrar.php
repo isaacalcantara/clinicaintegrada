@@ -1,15 +1,5 @@
-<?php
-	$sql = "SELECT * FROM cargo WHERE id=".$_REQUEST["cargo_id"];
-
-	$res = $conn->query($sql) or die($conn->error);
-
-	$row = $res->fetch_object();
-
-?>
-
 <form action='?page=cargo-salvar' method='POST'>
-	<input type='hidden' name='acao' value='editar'>
-    <input type="hidden" name="cargo_id" value="<?php print $row->id; ?>">
+	<input type='hidden' name='acao' value='cadastrar'>
 <div class='container'>
     <div class='row'>
         <h1>Cadastrar Cargo</h1>
@@ -21,7 +11,7 @@
                      <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z'/>
                     </svg>
                 </span>
-                <input type='text' class='form-control' placeholder='Descrição' aria-label='Descrição' aria-describedby='basic-addon1' name='cargo_nome' id='nome' value="<?php print $row->nome; ?>">
+                <input type='text' class='form-control' placeholder='Descrição' aria-label='Descrição' aria-describedby='basic-addon1' name='cargo_nome' id='nome'>
             </div>
         </div>
     </div>
@@ -32,7 +22,7 @@
                 <path d='M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z'/>
                 <path d='M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z'/>
                 </svg>
-                Editar
+                Cadastrar
             </button>
             <button class='btn btn-danger'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-square' viewBox='0 0 16 16'>
@@ -45,3 +35,7 @@
     </div>
 </div>
 </form>
+
+
+
+
