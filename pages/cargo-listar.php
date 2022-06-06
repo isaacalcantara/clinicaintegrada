@@ -1,5 +1,3 @@
-<h1>CARGO LISTAR</h1>
-
 <?php
 
     $sql = 'SELECT * FROM cargo';
