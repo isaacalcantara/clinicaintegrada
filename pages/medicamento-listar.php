@@ -21,7 +21,7 @@
                               <tr>
                                 <th scope='col'> # </th>
                                 <th scope='col'>Substância</th>
-                                <th scope='col'>Pesologia></th>
+                                <th scope='col'>PesZAAolQogia></th>
                                 <th scope='col'></th>
                                 <th></th>
                               </tr>

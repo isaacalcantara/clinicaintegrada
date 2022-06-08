@@ -1,7 +1,6 @@
 <?php
 
-$sql = "SELECT * FROM profissional AS p
-    INNER JOIN especialidade AS e ON id_especialidade = p.especialidade_id";
+$sql = "SELECT * FROM paciente ORDER BY nome_paciente";
 
 $res = $conn->query($sql) or die($conn->error);
 
@@ -9,41 +8,41 @@ $qtd = $res->num_rows;
 
 print '<p>Encontrou <b>'.$qtd.'</b> resultado(s)</p>'; 
 
-print "<div class='tab-pane fade show active' id='profissional-tab-pane' role='tabpanel' aria-labelledby='cargo-tab' tabindex='0'>";
+print "<div class='tab-pane fade show active' id='funcionario-tab-pane' role='tabpanel' aria-labelledby='cargo-tab' tabindex='0'>";
                         print "<table class='table table-striped'>";
-                            print"<thead class='table-light'>";
+                            print "<thead class='table-light'>";
                             print "<div class='row mt-1'>";
                                 print "<div class='col'>";
                                     
                                 print "</div>";
-                                print "<a class='dropdown-item' href='?page=profissional-cadastrar'>";
-                                print "<div class='col d-flex justify-content-end'>";
-                                    print "<button class='btn btn-primary me-1'>";
-                                        print "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-file-plus' viewBox='0 0 16 16'>
+                                print "<a class='dropdown-item' href='?page=paciente-cadastrar'>";
+                                print "<div class='col d-flex justify-content-end'>
+                                    <button class='btn btn-primary me-1'>
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-file-plus' viewBox='0 0 16 16'>
                                             <path d='M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z'/>
                                             <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z'/>
-                                        </svg>
-                                        Cadastrar
-                                    </button>
-                                </div>
-                                </a>
-                            </div>";
+                                        </svg>";
+                                       print "Cadastrar";
+                                    print "</button>";
+                                print "</div>";
+                                print "</a>";
+                            print "</div>";
                             if($qtd > 0){
                               print "<tr>";
                                 print "<th scope='col'> # </th>";
                                 print "<th scope='col'>Nome</th>";
-                                print "<th scope='col'>CPF></th>";
-                                print "<th scope='col'>Especialidade</th>";
+                                print "<th scope='col'>CPF</th>";
+                                print "<th scope='col'>Data Nascimento</th>";
                                 print "<th></th>";
                               print "</tr>";
                             print "</thead>";
                             print "<tbody>";
                             while($row = $res->fetch_object()){
-                              print "<tr>";
-                                print "<td>".$row->id_profissional."</td>";
-                                print "<td>".$row->nome_profissional."</td>";
-                                print "<td>".$row->cpf_profissional."</td>";
-                                print "<td>".$row->nome_especialidade."</td>";
+                             print "<tr>";
+                                print "<td>".$row->id_paciente."</td>";
+                                print "<td>".$row->nome_paciente."</td>";
+                                print "<td>".$row->cpf_paciente."</td>";
+                                print "<td>".ExibeData($row->birthdate_paciente)."</td>";
                                 print "<td class='d-flex justify-content-end p-3'>
                                     <button class='btn btn-primary me-1'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
@@ -56,10 +55,10 @@ print "<div class='tab-pane fade show active' id='profissional-tab-pane' role='t
                                             <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
                                           </svg>
                                     </button>
-                                </td>
-                              </tr>";
+                                </td>";
+                              print "</tr>";
                             }
-                           print "</tbody>
+                           print" </tbody>
                           </table>
 </div>";
                             }

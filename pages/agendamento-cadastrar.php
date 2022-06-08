@@ -1,22 +1,12 @@
 <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor' crossorigin='anonymous'>
-<form action='?page=profissional-salvar' method='POST'>
+<div class='col-8'>
+<form action='?page=agendamento-salvar' method='POST'>
 <input type='hidden' name='acao' value='cadastrar'>
 <div class='container'>
     <div class='row'>
-        <h1>Cadastrar Profissional</h1>
+        <h1>Novo Agendamento</h1>
         <div class='col mt-2'>
-            <label class='form-label' for='profissional'>Nome</label>
-            <div class='input-group mb-3'>
-                <span class='input-group-text' id='basic-addon1'>
-                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-badge-fill' viewBox='0 0 16 16'>
-                     <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z'/>
-                    </svg>
-                </span>
-                <input type='text' class='form-control' placeholder='Profissional' aria-label='Profissional' aria-describedby='basic-addon1' name='nome_profissional' id='profissional'>
-            </div>
-        </div>
-        <div class='col mt-2'>
-            <label class='form-label' for='cpf'>CPF</label>
+            <label class='form-label' for='conselho'>Paciente</label>
             <div class='input-group mb-3'>
                 <span class='input-group-text' id='basic-addon1'>
                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-card-heading' viewBox='0 0 16 16'>
@@ -24,28 +14,16 @@
                     <path d='M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z'/>
                     </svg>
                 </span>
-                <input type='text' class='form-control' placeholder='CPF' aria-label='Laboratório' aria-describedby='basic-addon1' name='cpf_profissional' id='cpf'>
-            </div>
-        </div>
-        <div class='col mt-2'>
-            <label class='form-label' for='conselho'>Especialidade</label>
-            <div class='input-group mb-3'>
-                <span class='input-group-text' id='basic-addon1'>
-                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-card-heading' viewBox='0 0 16 16'>
-                    <path d='M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z'/>
-                    <path d='M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z'/>
-                    </svg>
-                </span>
-                <select class='form-select' aria-label='Conselho' name='especialidade_id_especialidade' id='conselho'>
-                    <option selected> ** Especialidade **</option>
+                <select class='form-select' aria-label='Conselho' name='paciente_id_paciente' id='conselho'>
+                    <option selected> ** Paciente **</option>
                     <?php
-			        $sql = "SELECT * FROM especialidade";
+			        $sql = "SELECT * FROM paciente";
 
 			        $res = $conn->query($sql) or die($conn->error);
                     if($res->num_rows > 0){
                         while($row = $res->fetch_object()){
-                            print "<option value='".$row->id_especialidade."'>";
-                            print $row->nome_especialidade."</option>";
+                            print "<option value='".$row->id_paciente."'>";
+                            print $row->nome_paciente."</option>";
                         }
                     }else{
                         print "Não há especialidades cadastradas";
@@ -54,9 +32,7 @@
                     
                 </select>
             </div>
-        </div>
-        <div class='col mt-2'>
-            <label class='form-label' for='nconselho'>Nº Conselho</label>
+            <label class='form-label' for='conselho'>Profissional</label>
             <div class='input-group mb-3'>
                 <span class='input-group-text' id='basic-addon1'>
                     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-card-heading' viewBox='0 0 16 16'>
@@ -64,8 +40,47 @@
                     <path d='M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z'/>
                     </svg>
                 </span>
-                <input type='text' class='form-control' placeholder='Nº Conselho' aria-label='Nº Conselho' aria-describedby='basic-addon1' name='numero_conselho' id='nconselho'>
+                <select class='form-select' aria-label='Conselho' name='profissional_id_profissional' id='conselho'>
+                    <option selected> ** Profissional **</option>
+                    <?php
+			        $sql = "SELECT * FROM profissional";
+
+			        $res = $conn->query($sql) or die($conn->error);
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_object()){
+                            print "<option value='".$row->id_profissional."'>";
+                            print $row->nome_profissional."</option>";
+                        }
+                    }else{
+                        print "Não há profissionais cadastradas";
+                    }
+                    ?>
+                    
+                </select>
             </div>
+            <div class='col mt-2'>
+            <label class='form-label' for='dtNascimento'>Data</label>
+            <div class='input-group mb-3'>
+                <span class='input-group-text' id='basic-addon1'>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-calendar3' viewBox='0 0 16 16'>
+                    <path d='M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z'/>
+                    <path d='M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z'/>
+                    </svg>
+                </span>
+                <input type='date' class='form-control' placeholder='Data Nascimento' aria-label='Data Nascimento' aria-describedby='basic-addon1' name='data_agendamento' id='dtNascimento'>
+            </div>
+        </div>
+        <div class='col mt-2'>
+            <label class='form-label' for='nome'>Hora</label>
+            <div class='input-group mb-3'>
+                <span class='input-group-text' id='basic-addon1'>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-badge-fill' viewBox='0 0 16 16'>
+                     <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z'/>
+                    </svg>
+                </span>
+                <input type='text' class='form-control' placeholder='00:00' aria-label='Descrição' aria-describedby='basic-addon1' name='hora_agendamento' id='nome'>
+            </div>
+        </div>
         </div>
     </div>
     <div class='row'>
@@ -75,7 +90,7 @@
                 <path d='M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z'/>
                 <path d='M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z'/>
                 </svg>
-                Cadastrar
+                Finalizar
             </button>
             <button class='btn btn-danger'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-square' viewBox='0 0 16 16'>
@@ -89,3 +104,4 @@
 </div>
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2' crossorigin='anonymous'></script>
 </form>
+</div>

@@ -14,7 +14,7 @@
     <nav id='menu' class='navbar bg-light container-fluid'>
     <div class='row navbar navbar-expand-lg'>
       <div id='logomarca' class='col'>
-        <img src='../assets/imgs/logomarca/logo_sem_bg.png' alt='Logomarca'>
+        <img src='imgs\logo.png' alt='Logomarca' style="width: 120px; padding-left: 10px;">
       </div>
       <div class='col d-flex justify-content-end'>
           <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -101,106 +101,25 @@
                     </div>
                 </div>
             </div>
-            <div class='col-8'>
-                <table class='table table-striped'>
-                    <thead class='table-light'>
-                    <div class='row mt-1'>
-                        <div class='col'>
-                            
-                        </div>
-                        <div class='col d-flex justify-content-end'>
-                            <button class='btn btn-primary me-1'>Não confirmado</button>
-            
-                            <button class='btn btn-success me-1'>Confirmado</button>
-                       
-                            <button class='btn btn-warning me-1' style='color: #FFF;'>Desmarcou</button>
-                        
-                            <button class='btn btn-danger me-1'>Faltou</button>
-                        </div>
-                    </div>
-                      <tr>
-                        <th scope='col'>Horario</th>
-                        <th scope='col'>Paciente</th>
-                        <th scope='col'>Tipo de Atendimento</th>
-                        <th scope='col'>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><buttom class='btn btn-light'>08:00:00</button></td>
-                        <td>Paciente 1</td>
-                        <td>Consulta | Nutricionista</td>
-                        <td> <button class='btn btn-success'>Confirmado</button></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>08:30:00</button></td>
-                        <td>Paciente 2</td>
-                        <td>Consulta | Nutricionista</td>
-                        <td> <button class='btn btn-warning' style='color: #FFF;'>Desmarcou</button></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>09:00:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>09:30:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>10:00:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>10:30:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>11:00:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>11:30:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>12:00:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>12:30:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>13:00:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><buttom class='btn btn-light'>13:30:00</button></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
+                <?php
+                  //arquivo de conexão com o banco de dados
+                  include('configbd.php');
+                  //chamar cada página
+                  switch(@$_REQUEST['page']){
+                    //cargo
+                    case 'agendamento-listar':
+                      include('pages/agendamento-listar.php');
+                    break;
+                    case 'agendamento-cadastrar':
+                      include('pages/agendamento-cadastrar.php');
+                    break;
+                    case 'agendamento-salvar':
+                      include('pages/agendamento-salvar.php');
+                    break;
+                    default:
+                      include('pages/agendamento-listar.php');
+                    }
+                ?>
         </div>
     </div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

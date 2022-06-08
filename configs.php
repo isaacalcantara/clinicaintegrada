@@ -72,9 +72,9 @@
                       <button class="nav-link" id="cargo-tab" data-bs-toggle="tab" data-bs-target="#cargo-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="">Funcionários</button>
                 </li>
                 </a>
-                <a href="?page=laudo-listar" style="text-decoration: none;">
+                <a href="?page=paciente-listar" style="text-decoration: none;">
                 <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="cargo-tab" data-bs-toggle="tab" data-bs-target="#cargo-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="false">Laudos</button>
+                      <button class="nav-link" id="cargo-tab" data-bs-toggle="tab" data-bs-target="#cargo-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="false">Pacientes</button>
                 </li>
                 </a>
                 <a href="?page=material-listar" style="text-decoration: none;">
@@ -171,19 +171,6 @@
                       case 'funcionario-salvar':
                         include('pages/funcionario-salvar.php');
                       break;
-                      // laudo
-                      case 'laudo-listar':
-                        include('pages/laudo-listar.php');
-                      break;
-                      case 'laudo-cadastrar':
-                        include('pages/laudo-cadastrar.php');
-                      break;
-                      case 'laudo-editar':
-                        include('pages/laudo-editar.php');
-                      break;
-                      case 'laudo-salvar':
-                        include('pages/laudo-salvar.php');
-                      break;
                       // material
                       case 'material-listar':
                         include('pages/material-listar.php');
@@ -222,6 +209,19 @@
                       break;
                       case 'profissional-salvar':
                         include('pages/profissional-salvar.php');
+                      break;
+                      // paciente
+                      case 'paciente-cadastrar':
+                        include('pages/paciente-cadastrar.php');
+                      break;
+                      case 'paciente-salvar':
+                        include('pages/paciente-salvar.php');
+                      break;
+                      case 'paciente-listar':
+                        include('pages/paciente-listar.php');
+                      break;
+                      case 'paciente-editar':
+                        include('pages/paciente-editar.php');
                       break;
                         // default
                       default:
